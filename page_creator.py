@@ -1,6 +1,9 @@
 import argparse
 
-
+# This script creates as many test html files as needed
+# with links on everypage linking to all other pages
+# It allows the use of templates for header and footer and adds 
+# Links in the middle of the two templates
 
 
 def get_html_template(header_path, footer_path):
