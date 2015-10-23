@@ -18,24 +18,24 @@ def get_html_template(header_path, footer_path):
         with open(footer_path) as f:
             end_html = f.read()
 
-    return start_html, end_html    
+    return start_html, end_html
 
 
 
 def create_links(num_pages, page_name, header, footer):
     #count = 0
     links = ""
-    
+
     for count in  range(num_pages):
         links += "<a href='" + page_name + str(count) + ".html'>" + page_name + str(count) + "</a><br />"
     start_html, end_html = get_html_template(header, footer)
     html = start_html + links + end_html
-    
+
     for count in  range(num_pages):
         file_name = page_name + str(count) + ".html"
         with open(file_name, 'w') as f:
             f.write(html)
-            
+
 
 def main():
 
@@ -45,15 +45,15 @@ def main():
     parser.add_argument('-b', dest="header", default="", required=False, help="Header template path")
     parser.add_argument('-e', dest="footer", default="", required=False, help="Footer template path")
     args = parser.parse_args()
-    
+
     create_links(args.number, args.filename, args.header, args.footer)
 
-    
-        
+
+
 
 
 #create_links(10, "test")
 
-    
+
 if __name__ == "__main__":
    main()
